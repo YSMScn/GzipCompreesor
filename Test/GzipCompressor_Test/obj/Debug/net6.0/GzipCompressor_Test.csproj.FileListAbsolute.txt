@@ -1,2 +1,0 @@
-D:\CodeRepos\GzipCompressor\Test\GzipCompressor_Test\bin\Debug\net6.0\es\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
-D:\CodeRepos\GzipCompressor\Test\GzipCompressor_Test\bin\Debug\net6.0\es\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
