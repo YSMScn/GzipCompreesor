@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GzipCompressor", "GzipCompressor\GzipCompressor.csproj", "{6DE04CA6-5FFE-4E45-B096-E3BF0689A806}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GzipCompressor", "GzipCompressor\GzipCompressor.csproj", "{6DE04CA6-5FFE-4E45-B096-E3BF0689A806}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{78D21E62-CB20-4AB7-A453-6A185082249A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GzipCompressor_Test", "Test\GzipCompressor_Test\GzipCompressor_Test.csproj", "{FF395373-4FC1-48C6-89F9-8ADA963754E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GzipCompressor_Test", "Test\GzipCompressor_Test\GzipCompressor_Test.csproj", "{FF395373-4FC1-48C6-89F9-8ADA963754E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

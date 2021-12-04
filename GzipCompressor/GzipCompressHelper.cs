@@ -39,13 +39,10 @@ namespace GzipCompressor
             {
                 throw new ArgumentNullException(nameof(inputString));
             }
-            var inputByteArray = Encoding.UTF8.GetBytes(inputString);
-            var outputStream = new MemoryStream();
-            using (var gzipStream = new GZipStream(outputStream, CompressionMode.Compress))
-            {
-                gzipStream.Write(inputByteArray, 0, inputByteArray.Length);
-            }
-            return ByteHelper.GetString(outputStream.ToArray());
+            var inputByteArray = ByteHelper.GetBytes(inputString);
+            var inputStream = new MemoryStream(inputByteArray);
+            var compresedStream = CompressStream(inputStream);
+            return ByteHelper.GetString(compresedStream.ToArray());
         }
 
         public static string DecompressString(string inputString)
@@ -56,11 +53,8 @@ namespace GzipCompressor
             }
             var inputByteArray = ByteHelper.GetBytes(inputString);
             var inputStream = new MemoryStream(inputByteArray);
-            using (var gzipStream = new GZipStream(inputStream, CompressionMode.Decompress))
-            {
-                using var sr = new StreamReader(gzipStream);
-                return sr.ReadToEnd();
-            }
+            var decompressedStream = DecompressStream(inputStream);
+            return ByteHelper.GetString(decompressedStream.ToArray());
         }
 
         public static MemoryStream CompressStream(Stream inputStream)
@@ -70,7 +64,6 @@ namespace GzipCompressor
             using (var gzipStream = new GZipStream(decompressedStream, CompressionMode.Compress,true))
             {
                 inputStream.CopyTo(gzipStream);
-                //decompressedStream.WriteTo(outputStream);
             }
             decompressedStream.Position=0;
             return decompressedStream;

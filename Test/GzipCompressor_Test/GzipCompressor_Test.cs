@@ -130,6 +130,7 @@ namespace GzipCompressor_Test
                 decompressString.ShouldBe(originalString);
             }
         }
+
         [Fact]
         public void CompressStringLength_Test()
         {
@@ -137,14 +138,25 @@ namespace GzipCompressor_Test
             var student = new Student { Id = 1, Age = 16, Name = "Frank" };
             var originalString = JsonConvert.SerializeObject(student);
             //Act
-            var compressedString = GzipCompressHelper.CompressString(originalString).Length;
-            var stream = new MemoryStream(Encoding.UTF8.GetBytes(originalString));
+            var compressedString = GzipCompressHelper.CompressString(originalString);
+            var stream = new MemoryStream(ByteHelper.GetBytes(originalString));
             var compressedStream = GzipCompressHelper.CompressStream(stream);
 
-            var compressedStreamString = ByteHelper.GetString(compressedStream.ToArray()).Length;
+            var compressedStreamString = ByteHelper.GetString(compressedStream.ToArray());
 
             //Assert
             compressedString.ShouldBeEquivalentTo(compressedStreamString);
+        }
+        [Fact]
+        public void CompressAndDecompressChinese_Test()
+        {
+            var student = new Student { Id = 1, Age = 16, Name = "¿ÓºŒ∫¿" };
+            var originalString = JsonConvert.SerializeObject(student);
+            //Act
+            var compressedString = GzipCompressHelper.CompressString(originalString);
+            var decompressedString = GzipCompressHelper.DecompressString(compressedString);
+            //Assert
+            decompressedString.ShouldBe(originalString);
         }
     }
 
