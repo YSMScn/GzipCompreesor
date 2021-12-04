@@ -1,0 +1,12 @@
+D:\CodeRepos\GzipCompressor\GzipCompressor\bin\Debug\net6.0\GzipCompressor.deps.json
+D:\CodeRepos\GzipCompressor\GzipCompressor\bin\Debug\net6.0\GzipCompressor.dll
+D:\CodeRepos\GzipCompressor\GzipCompressor\bin\Debug\net6.0\ref\GzipCompressor.dll
+D:\CodeRepos\GzipCompressor\GzipCompressor\bin\Debug\net6.0\GzipCompressor.pdb
+D:\CodeRepos\GzipCompressor\GzipCompressor\obj\Debug\net6.0\GzipCompressor.csproj.AssemblyReference.cache
+D:\CodeRepos\GzipCompressor\GzipCompressor\obj\Debug\net6.0\GzipCompressor.GeneratedMSBuildEditorConfig.editorconfig
+D:\CodeRepos\GzipCompressor\GzipCompressor\obj\Debug\net6.0\GzipCompressor.AssemblyInfoInputs.cache
+D:\CodeRepos\GzipCompressor\GzipCompressor\obj\Debug\net6.0\GzipCompressor.AssemblyInfo.cs
+D:\CodeRepos\GzipCompressor\GzipCompressor\obj\Debug\net6.0\GzipCompressor.csproj.CoreCompileInputs.cache
+D:\CodeRepos\GzipCompressor\GzipCompressor\obj\Debug\net6.0\GzipCompressor.dll
+D:\CodeRepos\GzipCompressor\GzipCompressor\obj\Debug\net6.0\ref\GzipCompressor.dll
+D:\CodeRepos\GzipCompressor\GzipCompressor\obj\Debug\net6.0\GzipCompressor.pdb
