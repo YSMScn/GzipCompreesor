@@ -45,7 +45,7 @@ namespace GzipCompressor
             {
                 gzipStream.Write(inputByteArray, 0, inputByteArray.Length);
             }
-            return Convert.ToBase64String(outputStream.ToArray());
+            return ByteHelper.GetString(outputStream.ToArray());
         }
 
         public static string DecompressString(string inputString)
@@ -54,7 +54,7 @@ namespace GzipCompressor
             {
                 throw new ArgumentNullException(nameof(inputString));
             }
-            var inputByteArray = Convert.FromBase64String(inputString);
+            var inputByteArray = ByteHelper.GetBytes(inputString);
             var inputStream = new MemoryStream(inputByteArray);
             using (var gzipStream = new GZipStream(inputStream, CompressionMode.Decompress))
             {

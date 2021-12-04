@@ -18,8 +18,8 @@ namespace GzipCompressor_Test
             var student = new Student { Id = 1, Age = 16, Name = "Frank" };
             var originalString = JsonConvert.SerializeObject(student);
             //Act
-            var compressedString = GzipCompressor.GzipCompressHelper.CompressString(originalString);
-            var decompressedString = GzipCompressor.GzipCompressHelper.DecompressString(compressedString);
+            var compressedString = GzipCompressHelper.CompressString(originalString);
+            var decompressedString = GzipCompressHelper.DecompressString(compressedString);
             //Assert
             decompressedString.ShouldBe(originalString);
         }
@@ -31,7 +31,7 @@ namespace GzipCompressor_Test
             try
             {
                 //Act
-                var compressedString = GzipCompressor.GzipCompressHelper.CompressString(inputEmptyString);
+                var compressedString = GzipCompressHelper.CompressString(inputEmptyString);
             }
             catch (Exception ex)
             {
@@ -43,7 +43,7 @@ namespace GzipCompressor_Test
             try
             {
                 //Act
-                var compressedString = GzipCompressor.GzipCompressHelper.CompressString(inputNullString);
+                var compressedString = GzipCompressHelper.CompressString(inputNullString);
             }
             catch (Exception ex)
             {
@@ -61,8 +61,8 @@ namespace GzipCompressor_Test
             var originalByteArray = Encoding.UTF8.GetBytes(originalString);
             var originalStream = new MemoryStream(originalByteArray);
             //Act
-            var compressedStream = GzipCompressor.GzipCompressHelper.CompressStream(originalStream);
-            var decompressedStream = GzipCompressor.GzipCompressHelper.DecompressStream(compressedStream);
+            var compressedStream = GzipCompressHelper.CompressStream(originalStream);
+            var decompressedStream = GzipCompressHelper.DecompressStream(compressedStream);
             using (var sr = new StreamReader(decompressedStream))
             {
                 var decompressString = sr.ReadToEnd();
@@ -78,8 +78,8 @@ namespace GzipCompressor_Test
             var student = new Student { Id = 1, Age = 16, Name = "Frank" };
             var originalString = JsonConvert.SerializeObject(student);
             //Act
-            var compressedString = await GzipCompressor.GzipCompressHelper.CompressStringAsync(originalString);
-            var decompressedString = await GzipCompressor.GzipCompressHelper.DecompressStringAsync(compressedString);
+            var compressedString = await GzipCompressHelper.CompressStringAsync(originalString);
+            var decompressedString = await GzipCompressHelper.DecompressStringAsync(compressedString);
             //Assert
             decompressedString.ShouldBe(originalString);
         }
@@ -91,7 +91,7 @@ namespace GzipCompressor_Test
             try
             {
                 //Act
-                var compressedString = await GzipCompressor.GzipCompressHelper.CompressStringAsync(inputEmptyString);
+                var compressedString = await GzipCompressHelper.CompressStringAsync(inputEmptyString);
             }
             catch (Exception ex)
             {
@@ -103,7 +103,7 @@ namespace GzipCompressor_Test
             try
             {
                 //Act
-                var compressedString = await GzipCompressor.GzipCompressHelper.CompressStringAsync(inputNullString);
+                var compressedString = await GzipCompressHelper.CompressStringAsync(inputNullString);
             }
             catch (Exception ex)
             {
@@ -121,8 +121,8 @@ namespace GzipCompressor_Test
             var originalByteArray = Encoding.UTF8.GetBytes(originalString);
             var originalStream = new MemoryStream(originalByteArray);
             //Act
-            var compressedStream = await GzipCompressor.GzipCompressHelper.CompressStreamAsync(originalStream);
-            var decompressedStream = await GzipCompressor.GzipCompressHelper.DecompressStreamAsync(compressedStream);
+            var compressedStream = await GzipCompressHelper.CompressStreamAsync(originalStream);
+            var decompressedStream = await GzipCompressHelper.DecompressStreamAsync(compressedStream);
             using (var sr = new StreamReader(decompressedStream))
             {
                 var decompressString = sr.ReadToEnd();
@@ -144,7 +144,7 @@ namespace GzipCompressor_Test
             var compressedStreamString = ByteHelper.GetString(compressedStream.ToArray()).Length;
 
             //Assert
-            compressedString.ShouldBeGreaterThan(compressedStreamString);
+            compressedString.ShouldBeEquivalentTo(compressedStreamString);
         }
     }
 
