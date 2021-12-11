@@ -1,5 +1,4 @@
 ﻿using System.IO.Compression;
-using System.Text;
 
 namespace GzipCompressor
 {
@@ -9,7 +8,7 @@ namespace GzipCompressor
         {
             return await Task.Run(() =>
             {
-               return CompressString(inputString);
+                return CompressString(inputString);
             });
         }
         public static async Task<string> DecompressStringAsync(string inputString)
@@ -60,14 +59,12 @@ namespace GzipCompressor
         public static MemoryStream CompressStream(Stream inputStream)
         {
             var decompressedStream = new MemoryStream();
-            MemoryStream outputStream = new();
-            using (var gzipStream = new GZipStream(decompressedStream, CompressionMode.Compress,true))
+            using (var gzipStream = new GZipStream(decompressedStream, CompressionMode.Compress, true))
             {
                 inputStream.CopyTo(gzipStream);
             }
-            decompressedStream.Position=0;
+            decompressedStream.Position = 0;
             return decompressedStream;
-
         }
 
         public static MemoryStream DecompressStream(Stream inputStream)
@@ -80,6 +77,6 @@ namespace GzipCompressor
             outputStream.Position = 0;
             return outputStream;
         }
-        
+
     }
 }
