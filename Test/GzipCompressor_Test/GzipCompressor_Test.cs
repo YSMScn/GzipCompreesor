@@ -158,6 +158,7 @@ namespace GzipCompressor_Test
             //Assert
             decompressedString.ShouldBe(originalString);
         }
+
     }
 
     public class Student

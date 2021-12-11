@@ -11,7 +11,7 @@
 
         public static string GetString(byte[] bytes)
         {
-            char[] chars = new char[bytes.Length / sizeof(char)];
+            char[] chars = new char[(bytes.Length-1) / sizeof(char) +1];
             Buffer.BlockCopy(bytes, 0, chars, 0, bytes.Length);
             return new string(chars);
         }
