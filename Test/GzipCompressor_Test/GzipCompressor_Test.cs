@@ -14,7 +14,7 @@ namespace GzipCompressor_Test
         [Fact]
         public void CompressAndDecompressString_Test()
         {
-            // Arange
+            // Arrange
             var student = new Student { Id = 1, Age = 16, Name = "Frank" };
             var originalString = JsonConvert.SerializeObject(student);
             //Act
@@ -26,7 +26,7 @@ namespace GzipCompressor_Test
         [Fact]
         public void CompressNullOrEmptyString_Test()
         {
-            // Arange
+            // Arrange
             var inputEmptyString = string.Empty;
             try
             {
@@ -38,7 +38,7 @@ namespace GzipCompressor_Test
                 //Assert
                 ex.ShouldBeOfType(typeof(ArgumentNullException));
             }
-            // Arange
+            // Arrange
             string inputNullString = null;
             try
             {
@@ -55,7 +55,7 @@ namespace GzipCompressor_Test
         [Fact]
         public void CompressAndDecompressStream_Test()
         {
-            // Arange
+            // Arrange
             var student = new Student { Id = 1, Age = 16, Name = "Frank" };
             var originalString = JsonConvert.SerializeObject(student);
             var originalByteArray = Encoding.UTF8.GetBytes(originalString);
@@ -74,7 +74,7 @@ namespace GzipCompressor_Test
         [Fact]
         public async Task CompressAndDecompressStringAsync_Test()
         {
-            // Arange
+            // Arrange
             var student = new Student { Id = 1, Age = 16, Name = "Frank" };
             var originalString = JsonConvert.SerializeObject(student);
             //Act
@@ -86,7 +86,7 @@ namespace GzipCompressor_Test
         [Fact]
         public async Task CompressNullOrEmptyStringAsync_Test()
         {
-            // Arange
+            // Arrange
             var inputEmptyString = string.Empty;
             try
             {
@@ -98,7 +98,7 @@ namespace GzipCompressor_Test
                 //Assert
                 ex.ShouldBeOfType(typeof(ArgumentNullException));
             }
-            // Arange
+            // Arrange
             string inputNullString = null;
             try
             {
@@ -115,7 +115,7 @@ namespace GzipCompressor_Test
         [Fact]
         public async Task CompressAndDecompressStreamAsync_Test()
         {
-            // Arange
+            // Arrange
             var student = new Student { Id = 1, Age = 16, Name = "Frank" };
             var originalString = JsonConvert.SerializeObject(student);
             var originalByteArray = Encoding.UTF8.GetBytes(originalString);
@@ -125,7 +125,7 @@ namespace GzipCompressor_Test
             var decompressedStream = await GzipCompressHelper.DecompressStreamAsync(compressedStream);
             using (var sr = new StreamReader(decompressedStream))
             {
-                var decompressString = sr.ReadToEnd();
+                var decompressString = await sr.ReadToEndAsync();
                 //Assert
                 decompressString.ShouldBe(originalString);
             }
@@ -134,7 +134,7 @@ namespace GzipCompressor_Test
         [Fact]
         public void CompressStringLength_Test()
         {
-            // Arange
+            // Arrange
             var student = new Student { Id = 1, Age = 16, Name = "Frank" };
             var originalString = JsonConvert.SerializeObject(student);
             //Act

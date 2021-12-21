@@ -40,8 +40,8 @@ namespace GzipCompressor
             }
             var inputByteArray = ByteHelper.GetBytes(inputString);
             var inputStream = new MemoryStream(inputByteArray);
-            var compresedStream = CompressStream(inputStream);
-            return ByteHelper.GetString(compresedStream.ToArray());
+            var compressedStream = CompressStream(inputStream);
+            return ByteHelper.GetString(compressedStream.ToArray());
         }
 
         public static string DecompressString(string inputString)
